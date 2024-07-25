@@ -1,4 +1,4 @@
-import uuid
+from uuid import uuid4 as uuid
 from threading import Thread
 from flask import Flask, jsonify, request, abort
 
@@ -26,8 +26,9 @@ def run_crew():
     positions = data["positions"]
 
     thread = Thread(target=kickoff_crew, args=(job_id, companies, positions))
+    thread.start()
 
-    return jsonify({"status": "success"}), 200
+    return jsonify({"job_id": job_id}), 200
 
 
 @app.route("/api/crew/<job_id>", methods=["GET"])
