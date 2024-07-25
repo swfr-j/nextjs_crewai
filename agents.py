@@ -3,12 +3,11 @@ from langchain_community.llms.ollama import Ollama
 from langchain_openai import ChatOpenAI
 
 
-class CompanyResearchAgesnts:
+class CompanyResearchAgents:
     def __init__(self, company) -> None:
         # TODO: Add tools
         # self.llm = ChatOpenAI(model="gpt-4-turbo")
-        # self.llm = Ollama(model="llama3.1")
-        self.llm = None
+        self.llm = Ollama(model="llama3.1")
 
     def research_manager(self, companies: list[str], positions: list[str]) -> Agent:
         return Agent(

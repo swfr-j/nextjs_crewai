@@ -1,3 +1,4 @@
+from agents import CompanyResearchAgents
 from job_manager import append_event
 
 
@@ -12,6 +13,9 @@ class CompanyResearchCrew:
         )
 
         # TODO: Setup agents
+        agents = CompanyResearchAgents()
+        research_manager = agents.research_manager(companies, positions)
+        company_research_agent = agents.company_research_agent()
 
         # TODO: Setup Tasks
 
